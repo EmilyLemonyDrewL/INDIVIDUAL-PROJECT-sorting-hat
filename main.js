@@ -29,7 +29,7 @@ const renderToDom = (divId, htmlToRender) => {
 const cardsOnDom = (students) => {
 let domString ="";
  for (const witch of students) {
-  domString += `<div class="card" style="width: 18rem;">
+  domString += `<div class="card text-center" style="width: 18rem;">
   <div class="card-body">
     <h5 class="card-title">${witch.name}</h5>
     <p class="card-house">${witch.house}</p>
@@ -43,19 +43,20 @@ let domString ="";
 
 
 
-
 //get form on DOM when sorting hat button is clicked
 
 const formOnDom = () => {
   let domString = `<form>
   <div class="form-floating mb-3">
-    <input type="text" class="form-control" id="name" placeholder="Name" required>
     <label for="floatingInput">Name</label>
+    <input type="text" class="form-control" id="name" placeholder="Name" required>
+    <div class="invalid-feedback>Error: Please type your name.</div>
   </div>
   <button type="submit" class="btn btn-dark" id="form-submit">Revelio!</button>
   </form>`;
 
   renderToDom("#form", domString);
+
 }
 
 const revealForm = document.querySelector("#sort-me-button");
@@ -63,6 +64,14 @@ const revealForm = document.querySelector("#sort-me-button");
 revealForm.addEventListener('click', () => {
   formOnDom();
 })
+
+
+//array of houses
+
+
+  //work on form function. Form should include a sort button. When the sort button is clicked, the form should disappear and the student card should appear. If the form is not filled out properly, an error message should display.
+
+
 
 
 
@@ -85,6 +94,7 @@ const showLions = document.querySelector("#lion");
 const showBadgers = document.querySelector("#badger");
 const showSnakes = document.querySelector("#snake");
 const showRavens = document.querySelector("#raven");
+const showAllStudents = document.querySelector("#show-all");
 
 //add click events to the buttons
 showLions.addEventListener('click', () => {
@@ -107,17 +117,24 @@ showRavens.addEventListener('click', () => {
   cardsOnDom(ravenHouse);
 });
 
+showAllStudents.addEventListener('click', () => {
+  cardsOnDom(students);
+})
 
 
 
-//work on form for students to fill out and place into a modal.Form should include a sort button. When the sort button is clicked, the form should disappear and the student card should appear. If the form is not filled out properly, an error message should display.
+
+
+
+
+
+
+
+
+
+
 
 //Then, make sure the house is randomized for each student.
-
-
-
-
-//use startapp function (make sure that the app does not start until the sorting hat is clicked)
 
 
 // event listener by click, get the expel button working. DOES NOT DELETE, but moves the student to the death eater traitors section. 
