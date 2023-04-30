@@ -4,7 +4,7 @@ const students = [
   {
     id: 1,
     name: "Lemony",
-    house: "Hufflepuff"
+    house: "Hufflepuff",
   },
   {
     id: 2,
@@ -18,15 +18,6 @@ const students = [
   }
 ];
 
-//badger img: https://plus.unsplash.com/premium_photo-1667238830949-753e7ea0d2d0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1819&q=80
-
-//snake img: https://images.unsplash.com/photo-1580192985016-7e15ef081dd8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1361&q=80
-
-//lion img: https://images.unsplash.com/photo-1578924825286-9492be34ec50?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1829&q=80
-
-//crow image: https://images.unsplash.com/photo-1584446922442-7ac6b8c118f3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=912&q=80
-
-
 
 //render to DOM
 const renderToDom = (divId, htmlToRender) => {
@@ -34,22 +25,24 @@ const renderToDom = (divId, htmlToRender) => {
   selectedDiv.innerHTML = htmlToRender;
 }
 
-
 //show cards
 const cardsOnDom = (students) => {
-  let domString ="";
-  for (const witch of students) {
-    domString += `<div class="card" style="width: 18rem;">
-    <div class="card-body">
-      <h5 class="card-title">${witch.name}</h5>
-      <p class="card-house">${witch.house}</p>
-    </div>
-  </div>`
-  };
+let domString ="";
+ for (const witch of students) {
+  domString += `<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">${witch.name}</h5>
+    <p class="card-house">${witch.house}</p>
+    <button class="btn btn-dark" id="expel">Expel(liarmus?)</button>
+   </div>
+ </div>`;
+ }
 
-
-  renderToDom("#students", domString);
+  renderToDom("#student-cards", domString);
 }
+
+
+
 
 //get form on DOM when sorting hat button is clicked
 
@@ -73,8 +66,7 @@ revealForm.addEventListener('click', () => {
 
 
 
-
-//filter for house
+//filter for sorting cards by house
 const filter = (students, houseString) => {
   const houseArray = [];
   
@@ -88,21 +80,45 @@ const filter = (students, houseString) => {
 return cardsOnDom(houseArray);
 }
 
+//target the house sorting buttons
+const showLions = document.querySelector("#lion");
+const showBadgers = document.querySelector("#badger");
+const showSnakes = document.querySelector("#snake");
+const showRavens = document.querySelector("#raven");
+
+//add click events to the buttons
+showLions.addEventListener('click', () => {
+  const lionHouse = filter(students, "Griffindor");
+  cardsOnDom(lionHouse);
+});
+
+showBadgers.addEventListener('click', () => {
+  const badgerHouse = filter(students, "Hufflepuff");
+  cardsOnDom(badgerHouse);
+});
+
+showSnakes.addEventListener('click', () => {
+  const snakeHouse = filter(students, "Slytherin");
+  cardsOnDom(snakeHouse);
+});
+
+showRavens.addEventListener('click', () => {
+  const ravenHouse = filter(students, "Ravenclaw");
+  cardsOnDom(ravenHouse);
+});
 
 
-//create card structure for the death eater traitors? maybe. You may not have to.
+
 
 //work on form for students to fill out and place into a modal.Form should include a sort button. When the sort button is clicked, the form should disappear and the student card should appear. If the form is not filled out properly, an error message should display.
 
 //Then, make sure the house is randomized for each student.
 
 
-//create filter button(s) to sort by house, and get them working.
+
 
 //use startapp function (make sure that the app does not start until the sorting hat is clicked)
-const startApp = () => {
-  cardsOnDom(students);
-}
+
 
 // event listener by click, get the expel button working. DOES NOT DELETE, but moves the student to the death eater traitors section. 
 
@@ -111,3 +127,11 @@ const startApp = () => {
 //go back and make sure all your javascript is working and that you have everything that is required before playing around with the css.
 
 //update readme and record a loom video. Be prepared to explain renderToDom.
+
+
+//put cards on DOM at start of app
+const startApp = () => {
+  cardsOnDom(students);
+}
+
+startApp();
