@@ -11,20 +11,34 @@
 
 <body>
   
-  <div id="revelio-btn">
+  <div class="justify-content-center" id="revelio-btn">
 
-    <button href="#" id="sort-me-button" class="btn btn-dark">Let's get sorted!</button>
+    <div class="card" style="width: 18rem;">
+      
+      <img class="card-img-top" src="https://cdn.pixabay.com/photo/2019/07/27/15/10/wizard-4367020_1280.png" alt="Sorting Hat">
+      <div class="card-body">
+        <div class="text-center">
+          <h5 class="card-title">"Hello there! Let's get you sorted."</h5>
+          <button href="#" id="sort-me-button" class="btn btn-dark">Begin</button>
+        </div>
+        
+      </div>
+    </div>
+
   </div>
 
+
+
+  <div id="myModal" class=""></div>
   <div id="form"></div>
 
 
 
-  <div id="all-students-btn">
-    <button type="button" class="btn btn-dark btn-lg btn-block">All Students</button>
+  <div class="d-grid gap-2 col-6 mx-auto" id="all-students-btn">
+    <button type="button" class="btn btn-dark btn-lg" id="show-all">All Students</button>
   </div>
 
-  <div id="house-filter-btns">
+  <div class="text-center" id="house-filter-btns">
     <button type="button" class="btn btn-danger btn-lg" id="lion">Gryffindor</button>
     <button type="button" class="btn btn-warning btn-lg" id="badger">Hufflepuff</button>
     <button type="button" class="btn btn-success btn-lg" id="snake">Slytherin</button>
@@ -35,15 +49,19 @@
 
 
 
-<div id="cards-go-here">
+<div class="grid-container">
   
-  <div class="container" id="studentBody">
-    <h3 class="group-title">Students of Hogwarts</h3>
+  <div class="container" class="text-center" id="studentBody">
+    <div class="text-center">
+      <h3 class="group-title">Students of Hogwarts</h3>
+    </div>
     <div id="student-cards"></div>
   </div>
   
-  <div class="container" id="deathEaters">
-    <h3 class="group-title">Death Eater Traitors</h3>
+  <div class="container" class="text-center" id="deathEaters">
+    <div class="text-center">
+      <h3 class="group-title">Death Eater Traitors</h3>
+    </div>
     <div id="evil"></div>
   </div>
   
