@@ -4,6 +4,11 @@
   grid-gap: 20px;
 }
 
+.container {
+  display: flex;
+  justify-content: center;
+}
+
 #student-cards {
   display: flex;
   flex-flow: row-wrap;

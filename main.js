@@ -4,32 +4,38 @@ const students = [
   {
     id: 1,
     name: "Lemony",
-    house: "Hufflepuff",
+    house: "Hufflepuff"
   },
   {
     id: 2,
     name: "Stolas",
-    house: "Slytherin",
+    house: "Slytherin"
   },
   {
     id: 3,
-    name: "Howl Pendragon",
-    house: "Ravenclaw",
+    name: "H. Pendragon",
+    house: "Ravenclaw"
   }
 ];
 
 
-//render to DOM
+
+//render to DOM. Use divId because you want your elements to be printed within a specific div, and htmlToRender/.innerHTML, since you want to go in and alter or add to the html.
+
 const renderToDom = (divId, htmlToRender) => {
   const selectedDiv = document.querySelector(divId);
   selectedDiv.innerHTML = htmlToRender;
 }
 
-//show cards
+
+
+
+//Card structure
+
 const cardsOnDom = (students) => {
 let domString ="";
  for (const witch of students) {
-  domString += `<div class="card text-center" style="width: 18rem;">
+  domString += `<div class="col-sm-4 card text-center" style="width: 18rem;">
   <div class="card-body">
     <h5 class="card-title">${witch.name}</h5>
     <p class="card-house">${witch.house}</p>
@@ -41,20 +47,34 @@ let domString ="";
   renderToDom("#student-cards", domString);
 }
 
+//show cards on DOM at start of app
+const startApp = () => {
+  cardsOnDom(students);
+}
+
+startApp();
 
 
-//get form on DOM when sorting hat button is clicked
+
+
+
+
+
+
+
+//get form to show on DOM when sorting hat button is clicked
 
 const formOnDom = () => {
+
   let domString = `<form>
   <div class="form-floating mb-3">
-    <label for="floatingInput">Name</label>
-    <input type="text" class="form-control" id="name" placeholder="Name" required>
-    <div class="invalid-feedback>Error: Please type your name.</div>
+  <label for="floatingInput">Name</label>
+  <input type="text" class="form-control" id="name" placeholder="Name" required>
   </div>
-  <button type="submit" class="btn btn-dark" id="form-submit">Revelio!</button>
+  <button type="submit" class="btn btn-dark" id="getHouse">Revelio!</button>
   </form>`;
 
+ 
   renderToDom("#form", domString);
 
 }
@@ -65,11 +85,6 @@ revealForm.addEventListener('click', () => {
   formOnDom();
 })
 
-
-//array of houses
-
-
-  //work on form function. Form should include a sort button. When the sort button is clicked, the form should disappear and the student card should appear. If the form is not filled out properly, an error message should display.
 
 
 
@@ -89,12 +104,13 @@ const filter = (students, houseString) => {
 return cardsOnDom(houseArray);
 }
 
-//target the house sorting buttons
+//target the buttons
 const showLions = document.querySelector("#lion");
 const showBadgers = document.querySelector("#badger");
 const showSnakes = document.querySelector("#snake");
 const showRavens = document.querySelector("#raven");
 const showAllStudents = document.querySelector("#show-all");
+
 
 //add click events to the buttons
 showLions.addEventListener('click', () => {
@@ -119,22 +135,42 @@ showRavens.addEventListener('click', () => {
 
 showAllStudents.addEventListener('click', () => {
   cardsOnDom(students);
-})
+});
 
 
 
 
+// try to get the form functioning and assigning a random house
 
+const form = document.querySelector('form');
+  //make the form functional
+  const newStudent = (e) => {
+    e.preventDefault();
+    //Then, make an array to pull a random house from
+    const houses = ["Griffindor", "Hufflepuff", "Slytherin", "Ravenclaw"];
+    //function = Math.floor(Math.random() * length of array);
+    const randomHouse = Math.floor(Math.random() * 4);
+    const newStudentObj = {
+      id: students.length + 1,
+      name: `${document.querySelector("#name").value}`,
+      house: houses[randomHouse]
+    }
 
+    students.push(newStudentObj);
+    cardsOnDom(students);
+    form.reset();
 
+  };
 
-
-
-
-
+  form.addEventListener('submit', newStudent);
 
 
 //Then, make sure the house is randomized for each student.
+//array of houses
+//let randomHouse = houses[Math.floor(Math.random() * houses.length)];
+//let houses = ["Griffindor, Hufflepuff", "Slytherin", "Ravenclaw"];
+
+//let whichHouse = houses[Math.floor(Math.random() * houses.length)];
 
 
 // event listener by click, get the expel button working. DOES NOT DELETE, but moves the student to the death eater traitors section. 
@@ -144,11 +180,3 @@ showAllStudents.addEventListener('click', () => {
 //go back and make sure all your javascript is working and that you have everything that is required before playing around with the css.
 
 //update readme and record a loom video. Be prepared to explain renderToDom.
-
-
-//put cards on DOM at start of app
-const startApp = () => {
-  cardsOnDom(students);
-}
-
-startApp();
