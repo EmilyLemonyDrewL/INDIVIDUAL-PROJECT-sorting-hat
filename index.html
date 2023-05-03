@@ -19,7 +19,7 @@
       <div class="card-body">
         <div class="text-center">
           <h5 class="card-title">"Hello there! Let's get you sorted."</h5>
-          <button href="#" id="sort-me-button" class="btn btn-dark">Begin</button>
+          <a href="#myModal" class="btn btn-dark" data-bs-toggle="modal">Begin</a>
         </div>
         
       </div>
@@ -29,11 +29,35 @@
 
 
 
-  <div id="myModal" class=""></div>
+  <div id="myModal" class="modal fade" role="dialog">
+
+    <div class="modal-dialog modal-md">
+
+      <div class="modal-content">
+
+        <div class="modal-header">
+          
+          
+          <div id="form">
+            <form>
+              <h5>Please enter the student's name:</h5>
+              <div class="form-floating w-200">
+                <label for="floatingInput"></label>
+                <input type="text" class="form-control" id="name" placeholder="Name" required>
+              </div>
+              <button type="submit" class="btn btn-dark" id="getHouse">Revelio!</button>
+            </form>
+          </div>
 
 
 
-  <div id="form"></div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
 
 
 

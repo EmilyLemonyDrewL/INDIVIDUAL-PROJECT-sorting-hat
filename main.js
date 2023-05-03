@@ -64,26 +64,26 @@ startApp();
 
 //get form to show on DOM when sorting hat button is clicked
 
-const formOnDom = () => {
+//const formOnDom = () => {
 
-  let domString = `<form>
-  <div class="form-floating mb-3">
-  <label for="floatingInput">Name</label>
-  <input type="text" class="form-control" id="name" placeholder="Name" required>
-  </div>
-  <button type="submit" class="btn btn-dark" id="getHouse">Revelio!</button>
-  </form>`;
+  //let domString = `<form>
+  //<div class="form-floating mb-3">
+  //<label for="floatingInput">Name</label>
+  //<input type="text" class="form-control" id="name" placeholder="Name" required>
+  //</div>
+  //<button type="submit" class="btn btn-dark" id="getHouse">Revelio!</button>
+  //</form>`;
 
  
-  renderToDom("#form", domString);
+  //renderToDom("#form", domString);
 
-}
+//}
 
-const revealForm = document.querySelector("#sort-me-button");
+//const revealForm = document.querySelector("#sort-me-button");
 
-revealForm.addEventListener('click', () => {
-  formOnDom();
-})
+//revealForm.addEventListener('click', () => {
+  //formOnDom();
+//})
 
 
 
@@ -114,7 +114,7 @@ const showAllStudents = document.querySelector("#show-all");
 
 //add click events to the buttons
 showLions.addEventListener('click', () => {
-  const lionHouse = filter(students, "Griffindor");
+  const lionHouse = filter(students, "Gryffindor");
   cardsOnDom(lionHouse);
 });
 
@@ -142,14 +142,14 @@ showAllStudents.addEventListener('click', () => {
 
 // try to get the form functioning and assigning a random house
 
-const form = document.querySelector('form');
+const formWorks = document.querySelector('form');
   //make the form functional
   const newStudent = (e) => {
     e.preventDefault();
     //Then, make an array to pull a random house from
-    const houses = ["Griffindor", "Hufflepuff", "Slytherin", "Ravenclaw"];
+    const houses = ["Gryffindor", "Hufflepuff", "Slytherin", "Ravenclaw"];
     //function = Math.floor(Math.random() * length of array);
-    const randomHouse = Math.floor(Math.random() * 4);
+    const randomHouse = Math.floor(Math.random() * houses.length);
     const newStudentObj = {
       id: students.length + 1,
       name: `${document.querySelector("#name").value}`,
@@ -162,7 +162,7 @@ const form = document.querySelector('form');
 
   };
 
-  form.addEventListener('submit', newStudent);
+  formWorks.addEventListener('submit', newStudent);
 
 
 //Then, make sure the house is randomized for each student.
