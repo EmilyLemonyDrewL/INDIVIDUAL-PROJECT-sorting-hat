@@ -28,15 +28,13 @@ const renderToDom = (divId, htmlToRender) => {
 }
 
 
-
-
 //Card structure
 
 const cardsOnDom = (students) => {
 let domString ="";
  for (const witch of students) {
-  domString += `<div class="col-sm-4 card text-center" style="width: 18rem;">
-  <div class="card-body">
+  domString += `<div class="card mx-auto text-center border-warning" style="width: 14rem;">
+  <div class="card-body text-center">
     <h5 class="card-title">${witch.name}</h5>
     <p class="card-house">${witch.house}</p>
     <button class="btn btn-dark" id="expel">Expel(liarmus?)</button>
@@ -47,44 +45,16 @@ let domString ="";
   renderToDom("#student-cards", domString);
 }
 
+
+
+
+
 //show cards on DOM at start of app
 const startApp = () => {
   cardsOnDom(students);
 }
 
 startApp();
-
-
-
-
-
-
-
-
-
-//get form to show on DOM when sorting hat button is clicked
-
-//const formOnDom = () => {
-
-  //let domString = `<form>
-  //<div class="form-floating mb-3">
-  //<label for="floatingInput">Name</label>
-  //<input type="text" class="form-control" id="name" placeholder="Name" required>
-  //</div>
-  //<button type="submit" class="btn btn-dark" id="getHouse">Revelio!</button>
-  //</form>`;
-
- 
-  //renderToDom("#form", domString);
-
-//}
-
-//const revealForm = document.querySelector("#sort-me-button");
-
-//revealForm.addEventListener('click', () => {
-  //formOnDom();
-//})
-
 
 
 
@@ -165,18 +135,18 @@ const formWorks = document.querySelector('form');
   formWorks.addEventListener('submit', newStudent);
 
 
-//Then, make sure the house is randomized for each student.
-//array of houses
-//let randomHouse = houses[Math.floor(Math.random() * houses.length)];
-//let houses = ["Griffindor, Hufflepuff", "Slytherin", "Ravenclaw"];
 
-//let whichHouse = houses[Math.floor(Math.random() * houses.length)];
+//THings left to do:
+
+// Make custom error message for the form, if bootstrap allows
 
 
-// event listener by click, get the expel button working. DOES NOT DELETE, but moves the student to the death eater traitors section. 
+//add different styling to the Death Eater cards
 
-//Make sure the death eaters section is styled differently.
 
-//go back and make sure all your javascript is working and that you have everything that is required before playing around with the css.
+// README hint for the expel button: "Think of a way you can expel students without just hiding those divs on the page. "This would mean when the button is clicked you modify the array of students and pass the new array into your renderToDom() function. Double hint - put a unique id in the student object when you create them."
+
+//I am guessing that I will need to create two seperate arrays, and use array methods and a click event to get things working.
+
 
 //update readme and record a loom video. Be prepared to explain renderToDom.
