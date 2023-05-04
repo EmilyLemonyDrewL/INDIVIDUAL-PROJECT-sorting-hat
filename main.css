@@ -1,3 +1,10 @@
+
+body {
+  background-color: #396933;
+  backdrop-filter: blur(10px);
+}
+
+
 .grid-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -9,7 +16,39 @@
   justify-content: center;
 }
 
+button {
+  margin-top: 2px;
+  margin-left: 16px;
+  margin-bottom: 8px;
+  margin-right: 16px;
+}
+
+
 #student-cards {
   display: flex;
-  flex-flow: row-wrap;
+  flex-flow: row wrap;
+  column-count: 3;
+}
+
+.card {
+  margin: 10px;
+}
+
+#studentBody {
+  color: #ebd12d;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  background-image: url("https://images.unsplash.com/photo-1510673825466-302bc330ab95?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1744&q=80");
+  border-radius: 10px;
+  justify-content: center;
+}
+
+#deathEaters {
+  color: white;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  background-image: url("https://images.unsplash.com/photo-1637775297458-7443ffd545b2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=627&q=80");
+  border-radius: 15px;
+}
+
+h3 {
+  padding-top: 20px;
 }
