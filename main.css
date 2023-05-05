@@ -12,6 +12,10 @@ body {
   grid-gap: 20px;
 }
 
+.modal-content {
+  text-align: center;
+}
+
 .container {
   display: flex;
   justify-content: center;
