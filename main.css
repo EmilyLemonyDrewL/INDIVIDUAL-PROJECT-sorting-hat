@@ -1,7 +1,8 @@
 
 body {
+  background-image: url("https://images.unsplash.com/photo-1514250609276-c577268ef8fb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=940&q=80");
   background-color: #396933;
-  backdrop-filter: blur(10px);
+
 }
 
 
@@ -35,9 +36,10 @@ button {
 }
 
 #studentBody {
-  color: #ebd12d;
+  color: #f7c539;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   background-image: url("https://images.unsplash.com/photo-1510673825466-302bc330ab95?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1744&q=80");
+  border: 2px solid #f2fff7;
   border-radius: 10px;
   justify-content: center;
 }
@@ -45,6 +47,7 @@ button {
 #deathEaters {
   color: white;
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  border: 2px solid #f2fff7;
   background-image: url("https://images.unsplash.com/photo-1637775297458-7443ffd545b2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=627&q=80");
   border-radius: 15px;
 }
