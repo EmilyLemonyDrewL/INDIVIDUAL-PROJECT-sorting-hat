@@ -20,6 +20,10 @@ const students = [
 
 
 
+//Empty array for the terrible death eating traitors move into
+const expelled = [];
+
+
 //render to DOM. Use divId because you want your elements to be printed within a specific div, and htmlToRender/.innerHTML, since you want to go in and alter or add to the html.
 
 const renderToDom = (divId, htmlToRender) => {
@@ -28,22 +32,62 @@ const renderToDom = (divId, htmlToRender) => {
 }
 
 
-//Card structure
+//Card structure/render to DOM
 
-const cardsOnDom = (students) => {
-let domString ="";
- for (const witch of students) {
+const cardsOnDom = (array) => {
+let domString = "";
+ for (const witch of array) {
   domString += `<div class="card mx-auto text-center border-warning" style="width: 14rem;">
   <div class="card-body text-center">
     <h5 class="card-title">${witch.name}</h5>
     <p class="card-house">${witch.house}</p>
-    <button class="btn btn-dark" id="expel">Expel(liarmus?)</button>
+    <button id="expelButton--${witch.id}" class="btn btn-dark">Expel(liarmus?)</button>
    </div>
  </div>`;
  }
 
   renderToDom("#student-cards", domString);
-}
+  
+//add event listener to expel button
+  document.querySelector("#student-cards").addEventListener('click', expelAStudent);
+};
+ 
+
+
+//Now the expelled student cards need to be rendered to DOM
+const expelledOnDom = (students) => {
+  let domString = "";
+  for (const witch of expelled) {
+    domString += 
+    `<div class="card mx-auto text-center border-warning" style="width: 14rem;">
+     <div class="card-body">
+     <h4 class="card-expel">${witch.name} is now prohibited from entering school grounds.</h4>
+     </div>
+    </div>`;
+  }
+
+
+  renderToDom("#evil", domString);
+};
+
+
+//"Expel" the student
+const expelAStudent = (event) => {
+  if (event.target.id.includes("expelButton")) {
+    const [, witchId] = event.target.id.split("--");
+    const witchIndex = students.findIndex(
+      (witch) => Number(witchId) === witch.id
+    );
+
+    //splice the card from the array and push to the new array
+    const expelTheStudent = students.splice(witchIndex, 1);
+    expelled.push(expelTheStudent);
+
+    expelledOnDom(expelAStudent);
+    cardsOnDom(students);
+    }
+  };
+
 
 
 
@@ -55,7 +99,6 @@ const startApp = () => {
 }
 
 startApp();
-
 
 
 
@@ -110,6 +153,8 @@ showAllStudents.addEventListener('click', () => {
 
 
 
+
+
 // try to get the form functioning and assigning a random house
 
 const formWorks = document.querySelector('form');
@@ -133,6 +178,9 @@ const formWorks = document.querySelector('form');
   };
 
   formWorks.addEventListener('submit', newStudent);
+
+
+
 
 
 
