@@ -29,7 +29,7 @@ const expelled = [];
 const renderToDom = (divId, htmlToRender) => {
   const selectedDiv = document.querySelector(divId);
   selectedDiv.innerHTML = htmlToRender;
-}
+};
 
 
 //Card structure/render to DOM
@@ -53,14 +53,13 @@ let domString = "";
 };
  
 
-
+// README hint for the expel button: "Think of a way you can expel students without just hiding those divs on the page. "This would mean when the button is clicked you modify the array of students and pass the new array into your renderToDom() function. Double hint - put a unique id in the student object when you create them."
 //Now the expelled student cards need to be rendered to DOM
-const expelledOnDom = (students) => {
+const expelCardsOnDom = (array) => {
   let domString = "";
-  for (const witch of expelled) {
-    domString += 
-    `<div class="card mx-auto text-center border-warning" style="width: 14rem;">
-     <div class="card-body">
+  for (const witch of array) {
+    domString += `<div class="card mx-auto text-center border-warning" style="width: 14rem;">
+     <div class="card-body text-center">
      <h4 class="card-expel">${witch.name} is now prohibited from entering school grounds.</h4>
      </div>
     </div>`;
@@ -72,28 +71,25 @@ const expelledOnDom = (students) => {
 
 
 //"Expel" the student
-const expelAStudent = (event) => {
-  if (event.target.id.includes("expelButton")) {
-    const [, witchId] = event.target.id.split("--");
+const expelAStudent = (e) => {
+  if (e.target.id.includes("expelButton")) {
+    const [, witchId] = e.target.id.split("--");
     const witchIndex = students.findIndex(
       (witch) => Number(witchId) === witch.id
     );
 
     //splice the card from the array and push to the new array
-    const expelTheStudent = students.splice(witchIndex, 1);
-    expelled.push(expelTheStudent);
+    const expelThem = students.splice(witchIndex, 1);
+    expelled.push(expelThem);
 
-    expelledOnDom(expelAStudent);
+    expelCardsOnDom(expelThem);
     cardsOnDom(students);
     }
   };
 
 
 
-
-
-
-//show cards on DOM at start of app
+//show cards on DOM at start of server
 const startApp = () => {
   cardsOnDom(students);
 }
@@ -164,6 +160,8 @@ const formWorks = document.querySelector('form');
     //Then, make an array to pull a random house from
     const houses = ["Gryffindor", "Hufflepuff", "Slytherin", "Ravenclaw"];
     //function = Math.floor(Math.random() * length of array);
+    //Math.floor "static method that rounds down and returns an integer"
+    //Math.random "you can set a range and it will return a pseudo random number from within the range"
     const randomHouse = Math.floor(Math.random() * houses.length);
     const newStudentObj = {
       id: students.length + 1,
@@ -181,20 +179,10 @@ const formWorks = document.querySelector('form');
 
 
 
-
-
-
 //THings left to do:
 
 // Make custom error message for the form, if bootstrap allows
 
+//Make it to where the modal closes when you submit the new student form
 
-//add different styling to the Death Eater cards
-
-
-// README hint for the expel button: "Think of a way you can expel students without just hiding those divs on the page. "This would mean when the button is clicked you modify the array of students and pass the new array into your renderToDom() function. Double hint - put a unique id in the student object when you create them."
-
-//I am guessing that I will need to create two seperate arrays, and use array methods and a click event to get things working.
-
-
-//update readme and record a loom video. Be prepared to explain renderToDom.
+//update readme and record a loom video.
