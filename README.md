@@ -26,4 +26,4 @@ Any
 https://github.com/EmilyLemonyDrewL
 
 <h3>Loom Video:</h3>
-Coming soon!
+https://www.loom.com/share/bc8008b6ff1f425597bcfcf0fd084138
