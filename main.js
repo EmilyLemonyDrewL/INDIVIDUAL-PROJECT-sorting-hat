@@ -80,9 +80,9 @@ const expelAStudent = (e) => {
 
     //splice the card from the array and push to the new array
     const expelThem = students.splice(witchIndex, 1);
-    expelled.push(expelThem);
+    expelled.push(...expelThem);
 
-    expelCardsOnDom(expelThem);
+    expelCardsOnDom(expelled);
     cardsOnDom(students);
     }
   };
