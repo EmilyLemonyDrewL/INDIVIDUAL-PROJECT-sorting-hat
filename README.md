@@ -19,7 +19,7 @@ Any
 <li>Students move to the 'death eater traitors' div when they are "expelled".</li>
 </ul>
 
-<h3>Screenshots:</h3>
+<h3>Screenshot:</h3>
 ![sorting-hat-screenshot](https://github.com/EmilyLemonyDrewL/INDIVIDUAL-PROJECT-sorting-hat/assets/126979112/c3b4aab1-412f-47d7-896c-54ef435c02e1)
 
 <h3>Contributors:</h3>
